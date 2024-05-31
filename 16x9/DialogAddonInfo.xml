@@ -193,42 +193,23 @@
                         <orientation>horizontal</orientation>
                         <onup>9601</onup>
                         <usecontrolcoords>true</usecontrolcoords>
+						<defaultcontrol always="true">12</defaultcontrol>
 
                         <!-- Launch Addon Button -->
                         <control type="button" id="12">
-                            <label>518</label>
+                            <label>$LOCALIZE[518]</label>
                             <font>Font-ListInfo-Small-Bold</font>
                             <include>Defs_OptionButton3</include>
-                            <visible>Control.IsEnabled(12)</visible>
                         </control>
-                    
-
-                        <!-- Configure Addon Button -->
+						
+						<!-- Configure Addon Button -->
                         <control type="button" id="9">
-                            <label>24020</label>
+                            <label>$LOCALIZE[24020]</label>
                             <font>Font-ListInfo-Small-Bold</font>
                             <include>Defs_OptionButton3</include>
-                            <visible>Control.IsEnabled(9)</visible>
                         </control>
-                    
-
-                        <!-- Update Addon Button -->
-                        <control type="button" id="8">
-                            <label>24138</label>
-                            <font>Font-ListInfo-Small-Bold</font>
-                            <include>Defs_OptionButton3</include>
-                            <visible>Control.IsEnabled(8)</visible>
-                        </control>
-
-                        <!-- Versions -->
-                        <control type="button" id="14">
-                            <label>24069</label>
-                            <font>Font-ListInfo-Small-Bold</font>
-                            <include>Defs_OptionButton3</include>
-                            <visible>Control.IsEnabled(14)</visible>
-                        </control>
-
-                        <!-- Auto Updates -->
+						
+						<!-- Auto Updates -->
                         <control type="togglebutton" id="9013">
                             <label>$LOCALIZE[21340] $LOCALIZE[351]</label>
                             <altlabel>$LOCALIZE[21340] $LOCALIZE[16041]</altlabel>
@@ -240,36 +221,53 @@
                             <include>Defs_OptionButton3</include>
                             <visible>Control.IsEnabled(13)</visible>
                         </control>
-
-                        <!-- Install/UnInstall Addon button -->
-                        <control type="button" id="6">
-                            <label>24022</label>
-                            <font>Font-ListInfo-Small-Bold</font>
-                            <include>Defs_OptionButton3</include>
-                            <visible>Control.IsEnabled(6)</visible>
-                        </control>
-
-                        <!-- Enable/Disable Addon button -->
-                        <control type="button" id="7">
-                            <label>24021</label>
-                            <font>Font-ListInfo-Small-Bold</font>
-                            <include>Defs_OptionButton3</include>
-                            <visible>Control.IsEnabled(7)</visible>
-                        </control>
-
-                        <!-- View Dependencies -->
+						
+						<!-- View Dependencies -->
                         <control type="button" id="10">
                             <label>$LOCALIZE[39024]</label>
                             <font>Font-ListInfo-Small-Bold</font>
                             <include>Defs_OptionButton3</include>
-                            <visible>Control.IsEnabled(10)</visible>
                         </control>
+						
+						<!-- Enable /Disable -->
+                        <control type="button" id="7">
+                            <label>$LOCALIZE[24022]</label>
+                            <altlabel>$LOCALIZE[24021]</altlabel>
+                            <!-- <usealttexture>String.Contains(Control.GetLabel(7),*)</usealttexture>
+                            <onclick>SetFocus(7)</onclick>
+                            <onclick>Action(Select)</onclick> -->
+                            <font>Font-ListInfo-Small-Bold</font>
+                            <include>Defs_OptionButton3</include>
+							<selected>!String.StartsWith(Control.GetLabel(7),$LOCALIZE[24022]) | !Window.IsActive(addonbrowser)</selected>
+                        </control>
+						
+						<!-- Install Addon -->
+                        <control type="button" id="8">
+                            <label>$LOCALIZE[24138]</label>
+                            <font>Font-ListInfo-Small-Bold</font>
+                            <include>Defs_OptionButton3</include>
+                        </control>
+
+                        <!-- Versions -->
+                        <control type="button" id="14">
+                            <label>$LOCALIZE[24069]</label>
+                            <font>Font-ListInfo-Small-Bold</font>
+                            <include>Defs_OptionButton3</include>
+                        </control>
+						
+						<!-- Install/UnInstall Addon button -->
+                        <control type="button" id="6">
+                            <label>$LOCALIZE[24022]</label>
+                            <font>Font-ListInfo-Small-Bold</font>
+                            <include>Defs_OptionButton3</include>
+							<selected>ListItem.Property(addon.isinstalled) | !Window.IsActive(addonbrowser)</selected>
+                        </control>
+						
                     </control>
                 </control>
             </control>
-
         </control>
-        <control type="radiobutton" id="13"><width>1</width><height>1</height><visible allowhiddenfocus="true">false</visible></control>
+		<control type="radiobutton" id="13"><width>1</width><height>1</height><visible allowhiddenfocus="true">false</visible></control>
         <include>Furniture_DialogInfoOverlay</include>
     </controls>
 

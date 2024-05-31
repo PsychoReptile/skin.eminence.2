@@ -13,13 +13,13 @@
             <include>Defs_InfoBackground</include>
 
             <control type="group">
-                <visible allowhiddenfocus="true">!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window.Property(list))</visible>
+                <visible allowhiddenfocus="true">!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window.Property(list)) + !String.IsEqual(ListItem.Property(item.type),person)</visible>
                 <include content="Object_Headline">
                     <param name="label" value="207" />
                 </include>
             </control>
             <control type="group">
-                <visible allowhiddenfocus="true">String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window.Property(list))</visible>
+                <visible allowhiddenfocus="true">String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window.Property(list)) + !String.IsEqual(ListItem.Property(item.type),person)</visible>
                 <include content="Object_Headline">
                     <param name="label" value="206" />
                 </include>
@@ -28,6 +28,12 @@
                 <visible allowhiddenfocus="true">String.IsEqual(Window.Property(list),Director)</visible>
                 <include content="Object_Headline">
                     <param name="label" value="20339" />
+                </include>
+            </control>
+			<control type="group">
+                <visible allowhiddenfocus="true">String.IsEqual(ListItem.Property(item.type),person)</visible>
+                <include content="Object_Headline">
+                    <param name="label" value="20337" />
                 </include>
             </control>
 
@@ -62,7 +68,7 @@
 
                     <!-- LANGUAGE -->
                     <control type="grouplist">
-                        <visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window.Property(list))</visible>
+                        <visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window.Property(list)) + Skin.HasSetting(InfoShowLang)</visible>
                         <usecontrolcoords>true</usecontrolcoords>
                         <itemgap>pad</itemgap>
                         <orientation>horizontal</orientation>
@@ -270,8 +276,20 @@
                             <height max="228">auto</height>
                             <font>Font-ListInfo</font>
                             <align>left</align>
-                            <label>$INFO[Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_Consensus),, ]$VAR[Label_Plot]$INFO[Window(Home).Property(TMDBHelper.ListItem.Awards), ,]</label>
+							<visible>Skin.HasSetting(furniture.onlineplot)</visible>
+                            <label>$INFO[Window(Home).Property(TMDBHelper.ListItem.RottenTomatoes_Consensus),, ]$VAR[Label_Plot]$INFO[Window(Home).Property(TMDBHelper.ListItem.Awards),[CR],]</label>
                         </control>
+						<control type="textbox">
+                            <top>pad</top>
+                            <left>pad</left>
+                            <right>pad</right>
+                            <height max="228">auto</height>
+                            <font>Font-ListInfo</font>
+                            <align>left</align>
+							<visible>!Skin.HasSetting(furniture.onlineplot)</visible>
+                            <label>$VAR[Label_Plot]</label>
+                        </control>
+						
                         <control type="group">
                             <left>pad</left>
                             <right>pad</right>
@@ -634,8 +652,17 @@
                             <visible>!String.IsEqual(ListItem.Property(item.type),person)</visible>
                         </control>
                         
+						<!-- Show Fanart Button
+                        <control type="button" id="9006">
+                            <label>$LOCALIZE[31021]</label>
+                            <include>Defs_OptionButton3</include>
+                            <onfocus>ClearProperty(list)</onfocus>
+							<onclick>SetProperty(fanart,$ESCINFO[ListItem.Art(fanart)],home)</onclick>
+							<onclick>ActivateWindow(1132)</onclick>
+                            <visible>!String.IsEqual(ListItem.Property(item.type),person)</visible>
+                        </control>  -->
 
-                        <!-- Get Thumb Button -->
+                        <!-- Choose Art Button -->
                         <control type="button" id="10">
                             <label>13511</label>
                             <include>Defs_OptionButton3</include>

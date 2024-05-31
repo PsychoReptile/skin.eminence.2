@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<defaultcontrol always="true">6</defaultcontrol>
+	<include>GlobalOverlay</include>
+	<controls>
+		<control type="group">
+			<include>Animation_SlideIn</include>
+			<include>Animation_FadeOut</include>
+			<centerleft>50%</centerleft>
+			<width>902</width>
+			<bottom>195</bottom>
+			<height>690</height>
+			<control type="group">
+				<include>Dialog_Background</include>
+			</control>
+			<include content="Dialog_Top_IconHeader">
+				<param name="label" value="$LOCALIZE[14078]"/>
+				<param name="icon" value="special://skin/extras/icons/filebox.png"/>
+			</include>
+			<!-- Color picker panel -->
+			<control type="panel" id="6">
+				<left>20</left>
+				<top>80</top>
+				<width>840</width>
+				<height>560</height>
+				<onup>6</onup>
+				<ondown>6</ondown>
+				<onleft>9001</onleft>
+				<onright>61</onright>
+				<orientation>vertical</orientation>
+				<pagecontrol>61</pagecontrol>
+				<itemlayout height="140" width="140">
+					<control type="group">
+						<control type="image">
+							<top>10</top>
+							<bottom>10</bottom>
+							<left>10</left>
+							<right>10</right>
+							<texture colordiffuse="PosterBorder">common/white.png</texture>
+						</control>
+						<control type="image">
+							<top>10</top>
+							<bottom>10</bottom>
+							<left>10</left>
+							<right>10</right>
+							<texture colordiffuse="$INFO[ListItem.Label2]">common/white.png</texture>
+							<aspectratio>stretch</aspectratio>
+							<bordersize>10</bordersize>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="140" width="140">
+					<control type="group">
+						<control type="image">
+							<top>10</top>
+							<bottom>10</bottom>
+							<left>10</left>
+							<right>10</right>
+							<texture colordiffuse="$VAR[HighlightColor]">common/white.png</texture>
+						</control>
+						<control type="image">
+							<top>10</top>
+							<bottom>10</bottom>
+							<left>10</left>
+							<right>10</right>
+							<texture colordiffuse="$INFO[ListItem.Label2]">common/white.png</texture>
+							<aspectratio>stretch</aspectratio>
+							<bordersize>10</bordersize>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+			<!-- Scroll Bar -->
+			<control type="scrollbar" id="61">
+				<left>870</left>
+				<top>90</top>
+				<width>12</width>
+				<bottom>60</bottom>
+				<onleft condition="Control.IsVisible(6)">6</onleft>
+				<onright>9001</onright>
+				<orientation>vertical</orientation>
+			</control>
+			<!-- Selected Colour Label -->
+			<control type="label">
+				<align>left</align>
+				<font>Font-RSS</font>
+				<label>$LOCALIZE[737]: $INFO[Container(6).ListItem.Label] $INFO[Container(6).ListItem.Label2,#,]</label>
+				<left>29</left>
+				<textcolor>LineLabel</textcolor>
+				<top>624</top>
+				<width>auto</width>
+			</control>
+			<!-- Item Count Label -->
+			<control type="label">
+				<align>right</align>
+				<font>Font-RSS</font>
+				<label>$INFO[Container(6).NumItems] $LOCALIZE[31289] [$INFO[Container(6).CurrentPage]/$INFO[Container(6).NumPages]]</label>
+				<left>668</left>
+				<textcolor>LineLabel</textcolor>
+				<top>624</top>
+				<width>auto</width>
+			</control>
+			<!-- Cancel Button -->
+			<control type="grouplist" id="9001">
+				<left>508</left>
+				<top>10</top>
+				<onleft>61</onleft>
+				<onright>6</onright>
+				<control type="button" id="7">
+					<align>right</align>
+					<texturenofocus/>
+					<texturefocus/>
+					<focusedcolor>$VAR[HighlightColor]</focusedcolor>
+					<include>Defs_OptionButton</include>
+					<label>$LOCALIZE[222]</label>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

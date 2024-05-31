@@ -529,17 +529,25 @@
                     <ondown>312</ondown>
                     <orientation>horizontal</orientation>
 
+					<!-- SHOW/HIDE PASSWORD -->
+                    <control type="button" id="310">
+                        <onup>4000</onup>
+                        <width>230</width>
+                        <label>31291</label>
+                        <include>Defs_KeyboardButton</include>
+                    </control>
+					
                     <!-- SPACE -->
                     <control type="button" id="32">
                         <onup>4000</onup>
-                        <width>830</width>
+                        <width>710</width>
                         <label>20182</label>
                         <include>Defs_KeyboardButton</include>
                     </control>
                     <!-- BACKSPACE -->
                     <control type="button" id="8">
                         <onup>4000</onup>
-                        <width>350</width>
+                        <width>230</width>
                         <label>20181</label>
                         <include>Defs_KeyboardButton</include>
                     </control>

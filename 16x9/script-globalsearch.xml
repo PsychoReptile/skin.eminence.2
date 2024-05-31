@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<backgroundcolor>Background</backgroundcolor>
+	<menucontrol>9000</menucontrol>
+	<defaultcontrol always="true">500</defaultcontrol>
+	<views>50,52,53,55,500</views>
+	<controls>
+		<!-- Background -->
+		<include>Furniture_Background</include>
+		<include>Furniture_RSS</include>
+		<include>Furniture_TopBar</include>
+		<!-- Main group -->
+		<control type="group">
+			<top>dialogtop</top>
+			<bottom>sidepad</bottom>
+			<left>sidepad</left>
+			<right>sidepad</right>
+			<include>Animation_SlideIn</include>
+			<include>Animation_FadeOut</include>
+			<animation effect="slide" tween="quadratic" easing="out" time="200" start="-1920" end="0" delay="300">Visible</animation>
+			<animation effect="slide" tween="quadratic" easing="in" time="200" end="-1920" start="0">Hidden</animation>
+			<visible>!Window.IsVisible(12003)</visible>
+			<control type="group">
+				<top>70</top>
+				<left>bigpad</left>
+				<right>bigpad</right>
+				<include content="Object_Line">
+					<param name="width" value="465"/>
+					<param name="label" fallback="$INFO[Control.GetLabel(999)]" value="$INFO[Container(9000).ListItem.Label]"/>
+				</include>
+			</control>
+			<control type="group">
+				<top>50</top>
+				<left>bigpad</left>
+				<right>bigpad</right>
+				<height>648</height>
+				<control type="group">
+					<animation effect="slide" tween="quadratic" easing="out" time="200" start="-1920" end="0" delay="300">Visible</animation>
+					<animation effect="slide" tween="quadratic" easing="in" time="200" end="-1920" start="0">Hidden</animation>
+					<top>bigpad</top>
+					<left>0</left>
+					<right>bigpad</right>
+					<height>648</height>
+					<control type="button" id="990">
+						<width>465</width>
+						<include>Defs_OptionButton2_Horz</include>
+						<label>$LOCALIZE[31288]</label>
+						<onup>SetFocus(9000,99,absolute)</onup>
+						<ondown>SetFocus(9000,0,absolute)</ondown>
+						<onleft>500</onleft>
+						<onright>500</onright>
+					</control>
+					<!-- <control type="button" id="2">
+						<top>72</top>
+						<width>465</width>
+						<include>Defs_OptionButton2_Horz</include>
+						<onup>990</onup>
+						<ondown>SetFocus(9000,0,absolute)</ondown>
+						<onleft>500</onleft>
+						<onright>500</onright>
+						<onclick>Container.NextViewMode</onclick>
+					</control> -->
+					<control type="group">
+						<width>465</width>
+						<height>648</height>
+						<control type="list" id="9000">
+							<top>72</top>
+							<onup>990</onup>
+							<ondown>990</ondown>
+							<onleft>500</onleft>
+							<onright>500</onright>
+							<width>100%</width>
+							<height>posterh</height>
+							<orientation>vertical</orientation>
+							<itemlayout width="465" height="72">
+								<control type="image">
+									<width>100%</width>
+									<height>100%</height>
+									<texture colordiffuse="PosterBorder">common/white.png</texture>
+								</control>
+								<control type="label">
+									<font>Font-ListInfo</font>
+									<label>$INFO[ListItem.Label]</label>
+									<left>20</left>
+									<right>20</right>
+									<height>100%</height>
+								</control>
+								<control type="label">
+									<font>Font-ListInfo</font>
+									<label>$INFO[ListItem.Label2]</label>
+									<left>20</left>
+									<right>20</right>
+									<align>right</align>
+									<height>100%</height>
+								</control>
+							</itemlayout>
+							<focusedlayout width="465" height="72">
+								<control type="image">
+									<width>100%</width>
+									<height>100%</height>
+									<texture colordiffuse="$VAR[HighlightColor]">common/white-50.png</texture>
+									<visible>!Control.HasFocus(9000)</visible>
+								</control>
+								<control type="image">
+									<width>100%</width>
+									<height>100%</height>
+									<texture colordiffuse="$VAR[HighlightColor]">common/white.png</texture>
+									<visible>Control.HasFocus(9000)</visible>
+								</control>
+								<control type="label">
+									<font>Font-ListInfo</font>
+									<label>$INFO[ListItem.Label]</label>
+									<left>20</left>
+									<right>20</right>
+									<height>100%</height>
+									<textcolor>Selected</textcolor>
+								</control>
+								<control type="label">
+									<font>Font-ListInfo</font>
+									<label>$INFO[ListItem.Label2]</label>
+									<left>20</left>
+									<right>20</right>
+									<align>right</align>
+									<height>100%</height>
+									<textcolor>Selected</textcolor>
+								</control>
+							</focusedlayout>
+						</control>
+					</control>
+				</control>
+				<!-- Search Term -->
+				<control type="label">
+                    <bottom>-144</bottom>
+                    <height>48</height>
+                    <align>left</align>
+                    <textcolor>SideArrow</textcolor>
+                    <font>Font-LineLabel</font>
+                    <label>$LOCALIZE[31290] "$INFO[Window.Property(GlobalSearch.SearchString)]"</label>
+                </control>
+				<!-- No results -->
+				<control type="label">
+                    <bottom>-48</bottom>
+                    <height>48</height>
+                    <align>left</align>
+                    <textcolor>SideArrow</textcolor>
+                    <font>Font-LineLabel</font>
+                    <label>$LOCALIZE[31290] "$INFO[Window.Property(GlobalSearch.SearchString)]" - $INFO[Control.GetLabel(999)]</label>
+					<visible>Control.IsVisible(999)</visible>
+                </control>
+			</control>
+			<control type="group">
+				<top>70</top>
+				<left>505</left>
+				<width>1287</width>
+				<height>posterh</height>
+				<control type="group">
+					<right>bigpad</right>
+					<include>Object_Background</include>
+				</control>
+				<include content="Object_Line">
+					<param name="width" value="listlinew"/>
+					<param name="label" value="$INFO[Container(500).ListItem.Label]"/>
+				</include>
+				<include content="View_InfoList3">
+					<param name="left" value="0"/>
+					<param name="top" default="0"/>
+					<param name="id" value="500"/>
+					<param name="moveid" value="9000"/>
+					<param name="width" default="pictureinfow"/>
+				</include>
+				<!-- Arrows -->
+				<control type="group">
+					<control type="image">
+						<top>-100</top>
+						<centerleft>50%</centerleft>
+						<width>16</width>
+						<height>16</height>
+						<texture colordiffuse="SubLabel" flipy="true">common/16-arrow-down.png</texture>
+						<visible>Container(500).HasPrevious</visible>
+					</control>
+					<control type="image">
+						<bottom>-45</bottom>
+						<centerleft>50%</centerleft>
+						<width>16</width>
+						<height>16</height>
+						<texture colordiffuse="SubLabel" flipy="false">common/16-arrow-down.png</texture>
+						<visible>Container(500).HasNext</visible>
+					</control>
+				</control>
+			</control>
+		</control>
+		<control type="label" id="999">
+			<left>-2000</left>
+			<height>1</height>
+			<width>1</width>
+		</control>
+		<control type="label" id="991">
+			<left>-2000</left>
+			<height>1</height>
+			<width>1</width>
+		</control>
+		<include>Furniture_OverlayInfo</include>
+	</controls>
+</window>

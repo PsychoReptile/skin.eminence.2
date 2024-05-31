@@ -42,12 +42,19 @@
         <icon>special://skin/extras/icons/pictures.png</icon>
         <action>ActivateWindow(Pictures)</action>
     </shortcut>
+	<shortcut>
+		<label>1036</label>
+		<label2>Common Shortcut</label2>
+		<defaultID>favourites</defaultID>
+        <icon>special://skin/extras/icons/favourites.png</icon>
+        <action>ActivateWindow(FavouritesBrowser)</action>		
+	</shortcut>
     <shortcut>
-        <label>0</label>
+        <label>24001</label>
         <label2>Common Shortcut</label2>
         <defaultID>programs</defaultID>
-        <icon>special://skin/extras/icons/addons.png</icon>
-        <action>ActivateWindow(Programs)</action>
+        <icon>special://skin/extras/icons/addon1.png</icon>
+        <action>ActivateWindow(AddonBrowser)</action>
     </shortcut>
     <shortcut>
         <label>8</label>

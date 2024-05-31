@@ -8,32 +8,46 @@
             <top>80</top>
             <orientation>vertical</orientation>
             <nested />
-            <itemlayout width="140" height="140">
-                <control type="group">
-                    <top>10</top>
-                    <bottom>10</bottom>
-                    <left>10</left>
-                    <right>10</right>
-                    <include>Object_FlatBackground</include>
-                    <control type="image">
-                        <texture background="true">$INFO[ListITem.Icon]</texture>
-                        <bordersize>10</bordersize>
-                    </control>
-                </control>
-            </itemlayout>
-            <focusedlayout width="140" height="140">
-                <control type="group">
-                    <top>10</top>
-                    <bottom>10</bottom>
-                    <left>10</left>
-                    <right>10</right>
-                    <include>Object_FlatBackground</include>
-                    <control type="image">
-                        <texture background="true">$INFO[ListITem.Icon]</texture>
-                        <bordersize>0</bordersize>
-                    </control>
-                </control>
-            </focusedlayout>
+            <itemlayout height="140" width="140">
+					<control type="group">
+						<control type="image">
+							<top>10</top>
+							<bottom>10</bottom>
+							<left>10</left>
+							<right>10</right>
+							<texture colordiffuse="PosterBorder">common/white.png</texture>
+						</control>
+						<control type="image">
+							<top>10</top>
+							<bottom>10</bottom>
+							<left>10</left>
+							<right>10</right>
+							<texture background="true">$INFO[ListITem.Icon]</texture>
+							<aspectratio>stretch</aspectratio>
+							<bordersize>10</bordersize>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="140" width="140">
+					<control type="group">
+						<control type="image">
+							<top>10</top>
+							<bottom>10</bottom>
+							<left>10</left>
+							<right>10</right>
+							<texture colordiffuse="$VAR[HighlightColor]">common/white.png</texture>
+						</control>
+						<control type="image">
+							<top>10</top>
+							<bottom>10</bottom>
+							<left>10</left>
+							<right>10</right>
+							<texture background="true">$INFO[ListITem.Icon]</texture>
+							<aspectratio>stretch</aspectratio>
+							<bordersize>10</bordersize>
+						</control>
+					</control>
+				</focusedlayout>
             <content><include>Colors_Items</include></content>
         </control>
     </include>

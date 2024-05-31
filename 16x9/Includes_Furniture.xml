@@ -360,6 +360,15 @@
                 <texture colordiffuse="LineLabel" fallback="indicator/resolution/480.png">$INFO[ListItem.VideoResolution,indicator/resolution/,.png]</texture>
                 <visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
             </control>
+			
+			<!-- HDR Type -->
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="LineLabel" fallback="indicator/fallback.png">$INFO[ListItem.HdrType,indicator/hdr/,.png]</texture>
+                <visible>!String.IsEmpty(ListItem.HdrType)</visible>
+            </control>
 
             <!-- Video Codec -->
             <control type="image">
@@ -521,6 +530,16 @@
             </control>
             
 
+
+			<!-- Studio -->
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="LineLabel">$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.white/,.png]</texture>
+                <visible>System.AddonIsEnabled(resource.images.studios.white) + !String.IsEmpty($PARAM[infolabel_prefix]ListItem.Studio) + Skin.HasSetting(furniture.flags.studio) + ![Container.Content(seasons) | Container.Content(episodes)]</visible>
+            </control>
+			
             <!-- Duration -->
             <control type="image">
                 <left>-12</left>
@@ -744,6 +763,9 @@
         <value condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">$LOCALIZE[31149]</value>
         <value condition="Window.IsVisible(1190)">$INFO[Window(Home).Property(1190_MainLabel)]</value>
         <value condition="Window.IsVisible(MyWeather.xml)">$LOCALIZE[8]</value>
+		
+		<value condition="Window.IsVisible(MyFavourites.xml)">$LOCALIZE[1036]</value>
+
         <value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
         <value condition="Window.IsVisible(MyPVRGuide.xml) + Control.IsVisible(10)">$LOCALIZE[19032]</value>
         <value condition="Window.IsVisible(MyPVRGuide.xml) + Control.IsVisible(11)">$LOCALIZE[19030]</value>
@@ -808,6 +830,9 @@
         <value condition="Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(settings) | Window.IsVisible(SkinSettings.xml)">$LOCALIZE[5]</value>
         <value condition="Window.IsVisible(EventLog.xml) | Window.IsVisible(filemanager) | Window.IsActive(systeminfo) | Window.IsActive(profiles) | Window.IsVisible(SettingsCategory.xml) | Window.IsActive(addonbrowser) | Window.IsVisible(SkinSettings.xml)">$LOCALIZE[5]</value>
         <value condition="Window.IsVisible(weather)">$LOCALIZE[8]</value>
+		
+		<value condition="Window.IsVisible(MyFavourites.xml)">$LOCALIZE[1036]</value>
+		
         <value condition="Window.IsVisible(AddonBrowser.xml)">$LOCALIZE[24001]</value>
         <value condition="Window.IsVisible(MyPlaylist.xml)">$LOCALIZE[559]</value>
 
@@ -836,6 +861,9 @@
         <value condition="[VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)] + Player.HasVideo + VideoPlayer.Content(livetv)">special://skin/extras/icons/livetv.png</value>
         <value condition="[VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)] + Player.HasVideo">special://skin/extras/icons/video-addons.png</value>
         <value condition="Window.IsVisible(weather)">special://skin/extras/icons/sun.png</value>
+		
+		<value condition="Window.IsVisible(MyFavourites.xml)">special://skin/extras/icons/favourites.png</value>
+		
         <value condition="Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(settings) | Window.IsVisible(EventLog.xml) | Window.IsVisible(filemanager) | Window.IsActive(systeminfo) | Window.IsActive(profiles) | Window.IsVisible(SettingsCategory.xml) | Window.IsActive(addonbrowser) | Window.IsVisible(SkinSettings.xml)">special://skin/extras/icons/settings.png</value>
         <value condition="Window.IsVisible(AddonBrowser.xml)">special://skin/extras/icons/addons.png</value>
         <value condition="Window.IsVisible(MyPlaylist.xml)">special://skin/extras/icons/playlist.png</value>

@@ -1,4 +1,28 @@
-4.0.0
-- Remove ExtendedInfo
-- Remove XBMC. prefix
-- Remove autocompletion plugin
+4.2.4
+- Add new favourites to skin default menu
+- Override common favourites menu item
+- Minor updates to video info dialog and global search
+
+4.2.3
+- Update Addon info screen
+- Start unifying flag icons
+
+4.2.2
+- Add HDR type media icons
+- Add option to include consensus and awards in plot
+- Add option to show studio icons
+- Add colorbutton control to Kodi settings and addon settings
+- Added DialogColorPicker and modified custom colour picker to match appearance.
+- Add support for GlobalSearch
+- en-gb language file updated (use as base for translations)
+- Added support for Global Search
+
+4.2.1
+- No longer share script.skinshortcuts configuration.
+- Nexus fixes for screen calibration window
+- Removed Player.DisplayAfterSeek boolean condition, now Player.HasPerformedSeek(3)
+- Add new MyFavourites.xml
+- Add option to hide audio and subtitle language icons in video info dialog
+- Add a button to DialogKeyboard.xml which allows the user to show/hide a password
+- Add OSMC settings button and icon
+- Added 150+ new icons

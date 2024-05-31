@@ -27,7 +27,7 @@
     <shortcut>
         <label2>Episode Hub Shortcut</label2>
         <label>137</label>
-        <action>RunScript(script.globalsearch,tvshows=true&amp;episodes=true&amp;movies=true)</action>
+        <action>RunScript(script.globalsearch,tvshows=true&amp;episodes=true)</action>
         <icon>special://skin/extras/icons/search.png</icon>
     </shortcut>
     <shortcut>

@@ -65,6 +65,7 @@
                     <onclick condition="[Container.Content(games) + !String.IsEmpty(Skin.String(Skin.ForcedView.games))]">Skin.Reset(Skin.ForcedView.games)</onclick>
                     <onclick condition="[Container.Content(unknown) + !String.IsEmpty(Skin.String(Skin.ForcedView.unknown))]">Skin.Reset(Skin.ForcedView.unknown)</onclick>
                     <onclick condition="[Container.Content(videos) + !String.IsEmpty(Skin.String(Skin.ForcedView.videos))]">Skin.Reset(Skin.ForcedView.videos)</onclick>
+					<onclick condition="[Container.Content(favourites) + !String.IsEmpty(Skin.String(Skin.ForcedView.favourites))]">Skin.Reset(Skin.ForcedView.favourites)</onclick>
                     <onclick>ActivateWindow(1110)</onclick>
                 </control>
                 <control type="button" id="9001">

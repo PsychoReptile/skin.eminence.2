@@ -120,7 +120,7 @@
                         <onclick>Close</onclick>
                         <onclick>Container.SetViewMode(50)</onclick>
                         <onclick>Container.SetViewMode(50)</onclick>
-                        <visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(addons) | Container.Content(genres) | Container.Content(images) | Container.Content(videos) | Container.Content()</visible>
+                        <visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(addons) | Container.Content(genres) | Container.Content(images) | Container.Content(videos) | Container.Content(favourites) | Container.Content()</visible>
                     </item>
                     <!-- Poster List -->
                     <item>
@@ -253,7 +253,7 @@
                         <onclick>Container.SetViewMode(50)</onclick>
                         <onclick>Container.SetViewMode(500)</onclick>
                         <visible>!Skin.HasSetting(SkinViewTypes.View.Disabled.500)</visible>
-                        <visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(artists) | Container.Content(albums) | Container.Content(images) | Container.Content(addons) | Container.Content(genres) | Container.Content(years) | Container.Content(tags) | Container.Content(studios) | Container.Content(files) | Container.Content(countries) | Container.Content(directors) | Container.Content(actors)</visible>
+                        <visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(artists) | Container.Content(albums) | Container.Content(images) | Container.Content(addons) | Container.Content(genres) | Container.Content(years) | Container.Content(tags) | Container.Content(studios) | Container.Content(files) | Container.Content(countries) | Container.Content(directors) | Container.Content(actors) | Container.Content(favourites)</visible>
                     </item>
                     <!-- Icons + Info -->
                     <item>
@@ -337,6 +337,7 @@
                     <onclick condition="[Container.Content(games) + String.IsEmpty(Skin.String(Skin.ForcedView.games))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
                     <onclick condition="[Container.Content(unknown) + String.IsEmpty(Skin.String(Skin.ForcedView.unknown))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
                     <onclick condition="[Container.Content(videos) + String.IsEmpty(Skin.String(Skin.ForcedView.videos))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
+					<onclick condition="[Container.Content(favourites) + String.IsEmpty(Skin.String(Skin.ForcedView.favourites))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
                 </control>
                 <!-- Disable / Enable Views -->
                 <!-- TODO: ADD SUPPORT FOR SKINVIEWTYPES ADDON -->

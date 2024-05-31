@@ -283,9 +283,9 @@
     <include name="Defs_DialogInfo_PosterLeft"><left>500</left></include>
     <include name="Defs_DialogInfo_SquareLeft"><left>740</left></include>
     <variable name="Defs_SpinnerTexture">
-        <value condition="Skin.String(BusySpinner,Tube)">special://skin/extras/busy_spinners/Tube</value>
-        <value condition="Skin.String(BusySpinner,Kitty)">special://skin/extras/busy_spinners/Kitty</value>
-        <value>special://skin/extras/busy_spinners/Dots</value>
+        <value condition="Skin.String(BusySpinner,Tube)">special://skin/extras/busy_spinners/tube</value>
+        <value condition="Skin.String(BusySpinner,Kitty)">special://skin/extras/busy_spinners/kitty</value>
+        <value>special://skin/extras/busy_spinners/dots</value>
     </variable>
     <include name="Defs_OptionButton_Basic">
         <width>364</width>
@@ -484,6 +484,7 @@
         <value condition="!String.IsEmpty(Skin.String(home.fallbackwidget.target))">$INFO[Skin.String(home.fallbackwidget.target)]</value>
         <value>videos</value>
     </variable>
+
 
     <include name="Defs_WeatherOpen"><onclick>ActivateWindow(weather)</onclick></include>
 
@@ -684,6 +685,14 @@
                     <onclick>RunScript(service.libreelec.settings)</onclick>
                     <icon>special://skin/extras/icons/libreelec.png</icon>
                     <visible>System.HasAddon(service.libreelec.settings)</visible>
+                </item>
+				<item id="20">
+                    <description>OSMC</description>
+                    <label>$ADDON[service.osmc.settings 32002]</label>
+                    <label2>$ADDON[service.osmc.settings 32060] • $ADDON[service.osmc.settings 32058] • $ADDON[service.osmc.settings 32050][CR]$ADDON[service.osmc.settings 32052] • $ADDON[service.osmc.settings 32048]</label2>
+                    <onclick>RunScript(service.osmc.settings)</onclick>
+                    <icon>special://skin/extras/icons/osmc.png</icon>
+                    <visible>System.HasAddon(service.osmc.settings)</visible>
                 </item>
 
             </content>

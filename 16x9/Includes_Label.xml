@@ -155,12 +155,14 @@
     </variable>
 
     <variable name="Label_Plot">
-        <value condition="ListItem.IsCollection">$INFO[Window(Home).Property(TMDBbHelper.ListItem.Plots)]</value>
+        <value condition="ListItem.IsCollection + !Skin.HasSetting(furniture.onlineplot)">$INFO[Window(Home).Property(ListItem.Plot)]</value>
+        <value condition="ListItem.IsCollection + Skin.HasSetting(furniture.onlineplot)">$INFO[Window(Home).Property(TMDBbHelper.ListItem.Plots)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
         <value condition="!String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
         <value condition="!String.IsEmpty(ListItem.AddonDescription)">$INFO[ListItem.AddonDescription]</value>
-        <value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(TMDBbHelper.ListItem.Plot))">$INFO[Window(Home).Property(TMDBbHelper.ListItem.Plot)]</value>
+        <value condition="!String.IsEmpty(ListItem.Plot) + !Skin.HasSetting(furniture.onlineplot)">$INFO[ListItem.Plot]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(TMDBbHelper.ListItem.Plot)) + Skin.HasSetting(furniture.onlineplot)">$INFO[Window(Home).Property(TMDBbHelper.ListItem.Plot)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Plot))">$INFO[Window(Home).Property(ListItem.Plot)]</value>
     </variable>
 
     <variable name="Label_ListPlot">
